@@ -1,0 +1,21 @@
+name: Manual trigger
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Who to greet"
+        required: true
+        type: string
+        default: "World"
+
+jobs:
+  hello:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Hello Step
+      run: |
+        echo "Hello ${{ github.event.inputs.name }}"
+        lsb_release || true
+        docker --version || true
