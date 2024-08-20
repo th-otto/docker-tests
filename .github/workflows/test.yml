@@ -16,6 +16,7 @@ jobs:
     steps:
     - name: Hello Step
       run: |
+        echo "run by ${{ github.event_name }}"
         echo "Hello ${{ github.event.inputs.name }}"
         lsb_release || true
         docker --version || true
